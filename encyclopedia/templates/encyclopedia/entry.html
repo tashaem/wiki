@@ -1,0 +1,17 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block body %}
+
+    {{ entrycontent|safe }}
+
+    <form action="{% url 'wiki:edit' title %}">
+    <div class="form-group">
+      <button class="btn btn-secondary">Edit</button>
+    </div>
+    </form>
+
+{% endblock %}

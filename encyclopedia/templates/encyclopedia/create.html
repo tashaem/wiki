@@ -1,0 +1,30 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Create New Page
+{% endblock %}
+
+{% block body %}
+    <h1>Create a New Page</h1>
+    <hr>
+
+    <form action="{% url 'wiki:create' %}" method="post">
+      {% csrf_token %}
+
+      {% if already_exists %}
+          <div class="form-group">
+              <div class="alert alert-warning" role="alert">
+                  Entry with this title already exists!
+              </div>
+          </div>
+      {% endif %}
+
+      <div class="form-group">
+        {{form}}
+      </div>
+
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary mb-2">Save</button>
+      </div>
+
+{% endblock %}
